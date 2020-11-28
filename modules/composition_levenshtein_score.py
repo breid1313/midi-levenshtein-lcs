@@ -27,10 +27,10 @@ class Levenshtein():
     """
     mf = midi.MidiFile()
     mf.open(music)
-    print("Reading MIDI data...")
+    print("Reading MIDI data for {}...".format(music))
     mf.read()
     mf.close()
-    print("Converting MIDI to stream...")
+    print("Converting MIDI to stream for {}...".format(music))
     stream = midi.translate.midiFileToStream(mf)
 
     return stream
@@ -68,7 +68,8 @@ class Levenshtein():
     part1 = self.selectPart(stream1, df1)
     part2 = self.selectPart(stream2, df2)
 
-    print("computing levenstein distance...")
+    print("Computing levenstein distance...")
+    print("We are comparing the {} part from {} to the {} part from {}".format(part1.name, file1, part2.name, file2))
     distance = self.helper.levenshteinDistanceDP(part1, part2)
     print("Raw distance between inputs: " + str(distance))
 
@@ -85,5 +86,8 @@ if __name__ == '__main__':
   
   file1 = lev.helper.selectFile(data_dir)
   file2 = lev.helper.selectFile(data_dir)
+
+  print("First file selected for analysis: {}".format(file1))
+  print("Second file selected for analysis: {}".format(file2))
 
   lev.compute(file1, file2)

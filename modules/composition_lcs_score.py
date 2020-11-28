@@ -27,10 +27,10 @@ class LCS():
     """
     mf = midi.MidiFile()
     mf.open(music)
-    print("Reading MIDI data...")
+    print("Reading MIDI data for {}...".format(music))
     mf.read()
     mf.close()
-    print("Converting MIDI to stream...")
+    print("Converting MIDI to stream for {}...".format(music))
     stream = midi.translate.midiFileToStream(mf)
 
     return stream
@@ -69,6 +69,7 @@ class LCS():
     part2 = self.selectPart(stream2, df2)
 
     print("Computing the longest common subsequence...")
+    print("We are comparing the {} part from {} to the {} part from {}".format(part1.name, file1, part2.name, file2))
     lcs_length = self.helper.lcsDP(part1, part2)
 
     print("Length of the longest common subsequence: " + str(lcs_length))
