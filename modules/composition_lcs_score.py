@@ -73,7 +73,8 @@ class LCS():
     lcs_length = self.helper.lcsDP(part1, part2)
 
     print("Length of the longest common subsequence: " + str(lcs_length))
-    percentage = lcs_length/max(len(part1), len(part2))
+    #percentage = lcs_length/max(len(part1), len(part2))
+    percentage = lcs_length
     print("LCS length as a percentage of input size: " + str(percentage))
 
 if __name__ == '__main__':

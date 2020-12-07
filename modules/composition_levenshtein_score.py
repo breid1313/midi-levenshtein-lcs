@@ -78,8 +78,8 @@ class Levenshtein():
     # the max that number can be is the length of the longer string
     # take 1-score since the score is 'percent differnt' and we want 'percent similar
 
-    percent = 1-(distance/max(len(part1), len(part2)))
-    print("Percent difference between inputs: " + str(percent))
+    percent = 100*(1-(distance/100))
+    print("Percent similar between inputs: " + str(percent))
 
 if __name__ == '__main__':
   lev = Levenshtein()

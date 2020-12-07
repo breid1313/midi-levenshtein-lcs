@@ -63,20 +63,27 @@ class Music21Helper():
 
     @staticmethod
     def levenshteinDistanceDP(token1, token2, printDistances=False):
-        distances = np.zeros((len(token1) + 1, len(token2) + 1))
+        m = 100
+        n = 100
+        #distances = np.zeros((len(token1) + 1, len(token2) + 1))
+        distances = np.zeros((m+1, n+1))
 
-        for t1 in range(len(token1) + 1):
+        #for t1 in range(len(token1) + 1):
+        for t1 in range(m+1):
             distances[t1][0] = t1
 
-        for t2 in range(len(token2) + 1):
+        #for t2 in range(len(token2) + 1):
+        for t2 in range(n+1):
             distances[0][t2] = t2
             
         a = 0
         b = 0
         c = 0
         
-        for t1 in range(1, len(token1) + 1):
-            for t2 in range(1, len(token2) + 1):
+        #for t1 in range(1, len(token1) + 1):
+            #for t2 in range(1, len(token2) + 1):
+        for t1 in range(1, m + 1):
+            for t2 in range(1, n + 1):
                 if (token1[t1-1] == token2[t2-1]):
                     distances[t1][t2] = distances[t1 - 1][t2 - 1]
                 else:
@@ -87,7 +94,8 @@ class Music21Helper():
                     distances[t1][t2] = min([a,b,c]) + 1
         if printDistances:
             printDistances(distances, len(token1), len(token2))
-        return distances[len(token1)][len(token2)]
+        #return distances[len(token1)][len(token2)]
+        return distances[m][n]
 
     @staticmethod
     def printDistances(distances, token1Length, token2Length):
@@ -99,8 +107,8 @@ class Music21Helper():
     @staticmethod
     def lcsDP(token1, token2): 
         # find the length of the strings 
-        m = len(token1) 
-        n = len(token2) 
+        m = 100 # len(token1) 
+        n = 100 #len(token2) 
     
         # declaring the array for storing the dp values 
         L = [[None]*(n+1) for i in range(m+1)] 
