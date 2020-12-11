@@ -62,7 +62,7 @@ The unit tests can easily be run for either the Levenstein or LCS implementation
 To view a graph of the running time for the Levenstein and LCS implementations, leverage the `tests/analyze.py`.
 The script takes two mandatory flags: `-s/--input-size` and `-i/--iterations`.
 
-Pass a series of numbers to the `-s/--input-size` flag to designate the input sizes to test the implementation on. You may also pass `-s big` to the script to run input sizes 10-10,000 in increments of 100.
+Pass a series of numbers to the `-s/--input-size` flag to designate the input sizes to test the implementation on. You may also pass `-s big` to the script to run input sizes 100-10,000 in increments of 100.
 
 Pass an integer to the `-i/--iterations` to specify the number of test interations to perform for each input size.
 
@@ -71,6 +71,10 @@ For example:
 `python3 tests/analyze.py -s 500 1000 1500 2000 -i 5`
 
 will perform analysis on input sizes 500, 1000, 1500, and 2000 with 5 iterations per input size.
+
+`python3 tests/analyze.py -s big -i 3`
+
+will perform analysis on input sizes 100, 200, 300, ... , 10,000 with 3 iterations per input size.
 
 The analysis will randomly generate a string of the desired input size for each iteration, and pass that input to the Levenshtein or LCS implementation.
 All analysis is done first on the Levenshtein implementaion before moving on to LCS.
