@@ -105,7 +105,7 @@ class Music21Helper():
         # declaring the array for storing the dp values 
         L = [[None]*(n+1) for i in range(m+1)] 
     
-        # build L by computing values from the bottom uo
+        # build L by computing values from the bottom up
         for i in range(m+1): 
             for j in range(n+1): 
                 if i == 0 or j == 0 : 

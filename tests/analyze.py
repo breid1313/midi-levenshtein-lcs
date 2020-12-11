@@ -63,6 +63,10 @@ if __name__ == '__main__':
     input_size = args.input_size
     iterations = args.iterations
 
+    if input_size == ['big']:
+        r = range(10000)
+        input_size = [num for num in r if num % 100 == 0]
+
     print("recieved input size(s): " + str(input_size))
     print("received iteration count: " + str(iterations))
 
