@@ -51,7 +51,7 @@ Finally, a part will be randomly selected from each composition (canonically, a 
 consists of Violin I, Violin II, Viola, and Cello) for comparison.
 Lastly, we compute the Levenstein Distance between the two processed parts and print the results.
 
-#### Longest Commonsubsequence
+#### Longest Common Subsequence
 From the root of the repository, run `python3 modules/composition_lcs_score.py`. The same selection and pre-processing steps will occur as in the above section. Then, the LCS of the two selected parts is calculated and we print the results.
 
 ### Unit tests
