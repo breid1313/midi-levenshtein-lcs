@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "resources"))
 from helpers import Music21Helper
 
 
-### Musescore setup
+# ## Musescore setup
 # This is to configure Musescore as the musical notation generator/midi player for music21.
 # Only needed for viewing scores and listening to generated music, so commented out by default.
 # For more info: http://web.mit.edu/music21/doc/installing/installAdditional.html#musescore
@@ -40,8 +40,8 @@ class Compose:
         
         Example usage:
 
-        score_in_G_minor = SingleKeyComposer("g")
-        score_in_F_sharp_major = SingleKeyComposer("F#")
+        score_in_G_minor = Compose("g")
+        score_in_F_sharp_major = Compose("F#")
 
     """
     
