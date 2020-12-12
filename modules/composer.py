@@ -285,10 +285,12 @@ class Compose:
                 k = m
         return A
 
-    def play_score(self):
+    def play_score(self,print_text=True):
         score = self.create_score_from_parts()
-        #score.show('text')
+        if print_text:
+            score.show('text')
         score.show()
+
 
 
 
@@ -297,7 +299,7 @@ if __name__ == '__main__':
 
     m = Compose("g-")
 
-    m.play_score('text')
+    m.play_score(print_text=True)
     #m.play_score() #uncomment if you have MuseScore setup and configured; probably also works for lillypad?
 
 
