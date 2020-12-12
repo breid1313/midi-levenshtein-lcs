@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "resources"))
 from helpers import Music21Helper
 
 
-### Musescore setup
+# ## Musescore setup
 # This is to configure Musescore as the musical notation generator/midi player for music21.
 # Only needed for viewing scores and listening to generated music, so commented out by default.
 # For more info: http://web.mit.edu/music21/doc/installing/installAdditional.html#musescore
@@ -40,8 +40,8 @@ class Compose:
         
         Example usage:
 
-        score_in_G_minor = SingleKeyComposer("g")
-        score_in_F_sharp_major = SingleKeyComposer("F#")
+        score_in_G_minor = Compose("g")
+        score_in_F_sharp_major = Compose("F#")
 
     """
     
@@ -285,10 +285,12 @@ class Compose:
                 k = m
         return A
 
-    def play_score(self):
+    def play_score(self,print_text=True):
         score = self.create_score_from_parts()
-        #score.show('text')
+        if print_text:
+            score.show('text')
         score.show()
+
 
 
 
@@ -297,7 +299,7 @@ if __name__ == '__main__':
 
     m = Compose("g-")
 
-    m.play_score('text')
+    m.play_score(print_text=True)
     #m.play_score() #uncomment if you have MuseScore setup and configured; probably also works for lillypad?
 
 

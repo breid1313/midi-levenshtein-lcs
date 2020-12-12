@@ -79,3 +79,44 @@ will perform analysis on input sizes 100, 200, 300, ... , 10,000 with 3 iteratio
 The analysis will randomly generate a string of the desired input size for each iteration, and pass that input to the Levenshtein or LCS implementation.
 All analysis is done first on the Levenshtein implementaion before moving on to LCS.
 Upon test completion, `matplotlib` will show a graph of both algorithms with input size on the x-axis and running time on the y-axis.
+
+
+# Algorithmic Composition
+
+## Running `Composer`
+
+To run the `Composer` program, make sure you've installed the python3 dependencies as mentioned above: `music21` and `numpy`. Additionally, to listen to scores and view the final musical notation, you should install [Musescore](https://musescore.org/en).
+
+#### Musescore setup
+This is to configure Musescore as the musical notation generator/midi player for [music21](http://web.mit.edu/music21/doc/installing/installAdditional.html#musescore), assuming it's installed.
+
+```python
+# Lookup music21 environment settings
+us = environment.UserSettings()
+
+# tell the music21 environment where musescore binary lives
+environment.set('musicxmlPath', '/usr/bin/musescore')
+
+# lets music21 talk to musescore
+us['musescoreDirectPNGPath'] = '../resources/musescore_placeholder.png'
+```
+
+## Example usage:
+
+#### Build a random score and play
+
+```python
+>>> from composer import Compose
+>>> g = Compose("g")
+>>> g.play_score()
+{0.0} <music21.metadata.Metadata object at 0x7fe1a2791e10>
+{0.0} <music21.stream.Part Part1>
+    {0.0} <music21.stream.Measure 1 offset=0.0>
+        {0.0} <music21.note.Note B->
+        {1.0} <music21.note.Rest rest>
+        {2.0} <music21.note.Note B->
+        {3.0} <music21.note.Note E->
+        {4.0} <music21.note.Note A>
+        {6.0} <music21.note.Note G>
+        {7.0} <music21.note.Note B->
+```
